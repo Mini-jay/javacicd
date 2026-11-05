@@ -1,0 +1,174 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DevOps Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="dashboard">
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <div class="logo">
+            <span class="logo-icon">⬡</span>
+            <span>DevOps<span class="blue">Flow</span></span>
+        </div>
+
+        <p class="menu-label">WORKSPACE</p>
+
+        <nav>
+            <a href="#" class="nav-item active">▦ &nbsp; Overview</a>
+            <a href="#pipeline" class="nav-item">⇄ &nbsp; Pipeline</a>
+            <a href="#technology" class="nav-item">▣ &nbsp; Technologies</a>
+        </nav>
+
+        <div class="sidebar-bottom">
+            <div class="profile">
+                <div class="avatar">JD</div>
+                <div>
+                    <strong>Java Developer</strong>
+                    <small>DevOps Project</small>
+                </div>
+            </div>
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+
+        <header class="topbar">
+            <div>
+                <p class="breadcrumb">Workspace / Overview</p>
+                <h1>Dashboard</h1>
+            </div>
+            <div class="top-status">
+                <span class="status-dot"></span>
+                System Online
+            </div>
+        </header>
+
+        <section class="welcome">
+            <div>
+                <p class="eyebrow">PROJECT OVERVIEW</p>
+                <h2>Welcome to DevOpsFlow 👋</h2>
+                <p>Monitor your Java application's build and deployment environment.</p>
+            </div>
+            <div class="welcome-icon">⚡</div>
+        </section>
+
+        <!-- Statistics -->
+        <section class="stats-grid">
+
+            <div class="stat-card">
+                <p>APPLICATION STATUS</p>
+                <h2 class="green">● Running</h2>
+                <small>Spring Boot Application</small>
+            </div>
+
+            <div class="stat-card">
+                <p>JAVA VERSION</p>
+                <h2>21 LTS</h2>
+                <small>Runtime Environment</small>
+            </div>
+
+            <div class="stat-card">
+                <p>BUILD TOOL</p>
+                <h2>Maven</h2>
+                <small>Automated Build System</small>
+            </div>
+
+            <div class="stat-card">
+                <p>CONTAINERIZATION</p>
+                <h2>Docker</h2>
+                <small>Containerized Application</small>
+            </div>
+
+        </section>
+
+        <!-- Pipeline -->
+        <section class="panel" id="pipeline">
+            <div class="section-heading">
+                <div>
+                    <h3>CI/CD Pipeline</h3>
+                    <p>Automated software delivery workflow</p>
+                </div>
+                <span class="tag">Pipeline Overview</span>
+            </div>
+
+            <div class="pipeline">
+
+                <div class="pipeline-step">
+                    <div class="step-icon">⌘</div>
+                    <strong>Git</strong>
+                    <small>Source Code</small>
+                </div>
+
+                <span class="arrow">→</span>
+
+                <div class="pipeline-step">
+                    <div class="step-icon">⚙</div>
+                    <strong>Maven</strong>
+                    <small>Build & Test</small>
+                </div>
+
+                <span class="arrow">→</span>
+
+                <div class="pipeline-step">
+                    <div class="step-icon">▣</div>
+                    <strong>Docker</strong>
+                    <small>Containerize</small>
+                </div>
+
+                <span class="arrow">→</span>
+
+                <div class="pipeline-step">
+                    <div class="step-icon">☁</div>
+                    <strong>Registry</strong>
+                    <small>Publish Image</small>
+                </div>
+
+                <span class="arrow">→</span>
+
+                <div class="pipeline-step">
+                    <div class="step-icon">◈</div>
+                    <strong>Kubernetes</strong>
+                    <small>Deployment</small>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Technologies -->
+        <section class="panel" id="technology">
+            <div class="section-heading">
+                <div>
+                    <h3>Technology Stack</h3>
+                    <p>Tools powering this application</p>
+                </div>
+            </div>
+
+            <div class="tech-grid">
+                <div class="tech-card"><strong>Java 21</strong><small>Programming Language</small></div>
+                <div class="tech-card"><strong>Spring Boot</strong><small>Backend Framework</small></div>
+                <div class="tech-card"><strong>GitHub</strong><small>Source Management</small></div>
+                <div class="tech-card"><strong>GitHub Actions</strong><small>CI/CD Automation</small></div>
+                <div class="tech-card"><strong>Docker</strong><small>Containerization</small></div>
+                <div class="tech-card"><strong>Kubernetes</strong><small>Orchestration</small></div>
+            </div>
+        </section>
+
+        <footer>
+            DevOpsFlow · Java CI/CD Demonstration Project · 2026
+        </footer>
+
+    </main>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

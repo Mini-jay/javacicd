@@ -2,6 +2,5 @@
 .gitignore
 .vscode
 .idea
-target/*
 *.log
 .DS_Store
