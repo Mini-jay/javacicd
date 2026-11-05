@@ -1,0 +1,23 @@
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: javacicd-app
+  labels:
+    app: javacicd-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: javacicd-app
+  template:
+    metadata:
+      labels:
+        app: javacicd-app
+    spec:
+      containers:
+        - name: javacicd-container
+          image: minijay1/javacicd-app:latest
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8080
