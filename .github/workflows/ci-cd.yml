@@ -50,5 +50,5 @@ jobs:
           context: .
           push: true
           tags: |
-            ${{ secrets.minijay1 }}/javacicd-app:latest
-            ${{ secrets.minijay1 }}/javacicd-app:${{ github.sha }}
+            minijay1/javacicd-app:latest
+            minijay1/javacicd-app:${{ github.sha }}
