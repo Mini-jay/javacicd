@@ -2,32 +2,25 @@
 name: Deploy to Azure Kubernetes
 
 on:
-  workflow_dispatch:
+  workflow_run:
+    workflows: ["Java CI/CD Pipeline"]
+    types:
+      - completed
+    branches:
+      - main
 
 jobs:
   deploy:
     name: Deploy Application
-    runs-on: ubuntu-latest
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+    runs-on: self-hosted
 
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
+      - name: Deploy new Docker image
+        run: |
+          sudo k3s kubectl set image deployment/javacicd-app javacicd-container=minijay1/javacicd-app:${{ github.event.workflow_run.head_sha }}
+          sudo k3s kubectl rollout status deployment/javacicd-app --timeout=180s
 
-      - name: Copy Kubernetes manifests
-        uses: appleboy/scp-action@v0.1.7
-        with:
-          host: ${{ secrets.AZURE_HOST }}
-          username: ${{ secrets.AZURE_USER }}
-          key: ${{ secrets.AZURE_SSH_KEY }}
-          source: "k8s/"
-          target: "~/javacicd/"
-
-      - name: Deploy to Kubernetes
-        uses: appleboy/ssh-action@v1.2.0
-        with:
-          host: ${{ secrets.AZURE_HOST }}
-          username: ${{ secrets.AZURE_USER }}
-          key: ${{ secrets.AZURE_SSH_KEY }}
-          script: |
-            sudo kubectl apply -f ~/javacicd/k8s/
-            sudo kubectl rollout status deployment/javacicd-app
+      - name: Verify deployment
+        run: |
+          sudo k3s kubectl get deployments,pods,services
