@@ -1,13 +1,16 @@
-
 ---
 - name: Install K3s Kubernetes
   hosts: k3s_servers
   become: yes
+  gather_facts: yes
 
   tasks:
     - name: Update package lists
       apt:
         update_cache: yes
+        cache_valid_time: 3600
+      async: 120
+      poll: 10
 
     - name: Install curl
       apt:
